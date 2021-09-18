@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:13
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: postgres
+              containerPort: 5432
+          args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+          env:
+            - name: PGDATA
+              value: /run/postgresql/data
+          envFrom:
+            - secretRef:
+                name: postgres-env
+          volumeMounts:
+            - mountPath: /run/postgresql
+              name: postgres-data
+            - mountPath: /etc/postgresql
+              name: postgres-config
+      volumes:
+        - name: postgres-data
+          hostPath:
+            path: /var/postgres/data
+            type: DirectoryOrCreate
+        - name: postgres-config
+          configMap:
+            name: postgres-config
