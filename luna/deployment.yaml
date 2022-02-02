@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gurkbot
+  name: luna
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gurkbot
+      app: luna
   template:
     metadata:
       labels:
-        app: gurkbot
+        app: luna
     spec:
       securityContext:
         fsGroup: 2000
@@ -18,17 +18,19 @@ spec:
         runAsNonRoot: true
       containers:
         - name: bot
-          image: ghcr.io/gurkult/gurkbot:latest
+          image: ghcr.io/akarys42/starbot:latest
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: 50m
-              memory: 50Mi
+              cpu: 100m
+              memory: 100Mi
             limits:
-              cpu: 200m
-              memory: 200Mi
+              cpu: 300m
+              memory: 300Mi
           envFrom:
             - secretRef:
-                name: gurkbot-env
+                name: luna-env
+            - configMapRef:
+                name: luna-config
           securityContext:
             readOnlyRootFilesystem: true
