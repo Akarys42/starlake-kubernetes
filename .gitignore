@@ -1,5 +1,8 @@
 */PASSWORD*
 gurkbot/token.txt
 luna/token.txt
+blackbox/access_key.txt
+blackbox/key_id.txt
+blackbox/webhook.txt
 *kubeconfig.y*ml
 .idea
