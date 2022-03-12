@@ -1,7 +1,7 @@
-# Kissland
-The Kubernetes manifest for my personal cluster, called Kissland.
+# Starlake Kubernetes
+The Kubernetes manifest for our cluster [deployed through Ansible](https://git.akarys.me/starlake-kubernetes).
 
-This node is running the excellent [`k3s`](https://k3s.io/) distribution. It hosts the following services:
-- PostgreSQL database: more of a utility service, this is the database powering most other services.
-- Luna: Our private instance of [StarBot](https://git.akarys.me/StarBot).
+This node is running the k0s distribution. It hosts the following services:
+- PostgreSQL: The database powering most other services.
+- Luna: Our private instance of the [StarBot](https://git.akarys.me/StarBot) discord bot.
 - [Gurkbot](https://github.com/gurkult/gurkbot/): The open source Discord bot of the [Gurkult](https://gurkult.com) community
