@@ -19,12 +19,12 @@ else
 fi
 
 echo "- Creating database.."
-kubectl exec "$pod" -- psql -U kissland-admin -c "CREATE DATABASE $service;"
+kubectl exec "$pod" -- psql -U starchild -c "CREATE DATABASE $service;"
 
 echo "- Creating user.."
-kubectl exec "$pod" -- psql -U kissland-admin -c "CREATE USER $service WITH ENCRYPTED PASSWORD '$(cat PASSWORD_$service.txt)';"
+kubectl exec "$pod" -- psql -U starchild -c "CREATE USER $service WITH ENCRYPTED PASSWORD '$(cat PASSWORD_$service.txt)';"
 
 echo "- Granting access to the user.."
-kubectl exec "$pod" -- psql -U kissland-admin -c "GRANT ALL PRIVILEGES ON DATABASE $service TO $service;"
+kubectl exec "$pod" -- psql -U starchild -c "GRANT ALL PRIVILEGES ON DATABASE $service TO $service;"
 
 echo "=> Done!"

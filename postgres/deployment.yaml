@@ -46,3 +46,4 @@ spec:
         - name: postgres-config
           configMap:
             name: postgres-config
+      nodeName: often  # The volume is on that node, pending of having a better solution
