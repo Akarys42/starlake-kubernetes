@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: blackbox
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: blackbox
+              image: lemonsaurus/blackbox
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - secretRef:
+                    name: blackbox-env
+              env:
+                - name: BLACKBOX_CONFIG_PATH
+                  value: "/blackbox/config_file/blackbox.yaml"
+              volumeMounts:
+                - mountPath: /blackbox/config_file
+                  name: blackbox-config
+          volumes:
+            - name: blackbox-config
+              configMap:
+                name: blackbox-config
+          restartPolicy: OnFailure
+      backoffLimit: 3

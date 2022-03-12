@@ -5,8 +5,8 @@ metadata:
 data:
   blackbox.yaml: |
     databases:
-      kissland_postgres:
-        main_postgres:
+      postgres:
+        kissland_postgres:
           username: {{ POSTGRES_USER }}
           password: {{ POSTGRES_PASSWORD }}
           host: postgres.default.svc.cluster.local
@@ -17,12 +17,12 @@ data:
         dawnfm_s3:
           bucket: dawnfm
           endpoint: s3.us-west-004.backblazeb2.com
-          aws_access_key_id: {{ AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: {{ AWS_SECRET_ACCESS_KEY }}
+          aws_access_key_id: {{ KEY_ID }}
+          aws_secret_access_key: {{ ACCESS_KEY }}
 
     notifiers:
       discord:
         starchild:
-          webhook: {{ WEBHOOK }}
+          webhook: {{ WEBHOOK_URL }}
 
     retention_days: 7
