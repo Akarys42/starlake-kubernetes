@@ -1,5 +1,5 @@
 # Starlake Kubernetes
-The Kubernetes manifest for our cluster [deployed through Ansible](https://git.akarys.me/starlake-kubernetes).
+The Kubernetes manifest for our cluster [deployed through Ansible](https://git.akarys.me/starlake-ansible).
 
 This node is running the k0s distribution. It hosts the following services:
 - PostgreSQL: The database powering most other services.
