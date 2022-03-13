@@ -1,4 +1,6 @@
 */PASSWORD*
+athena-test-com/*SECRET_KEY.txt
+commons/GHCR_TOKEN.txt
 gurkbot/token.txt
 luna/token.txt
 blackbox/access_key.txt

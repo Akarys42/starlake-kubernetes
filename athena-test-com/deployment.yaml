@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: athena-test-com
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: athena-test-com
+  template:
+    metadata:
+      labels:
+        app: athena-test-com
+    spec:
+      containers:
+        - name: athena-test-com
+          image: ghcr.io/akarys42/athena-test-com:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 200m
+              memory: 300Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: athena-test-com-env
+            - configMapRef:
+                name: athena-test-com-config
+      imagePullSecrets:
+        - name: ghcr-login

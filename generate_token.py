@@ -12,4 +12,4 @@ GENERATED_LENGTH = ceil(LENGTH / 1.3) + 1
 with open(FILE_NAME, 'w') as file:
     file.write(secrets.token_urlsafe(GENERATED_LENGTH)[:LENGTH])
 
-print(f"Generated a {LENGTH} character secret in `{FILE_NAME}`")
+print(f"Generated a {LENGTH} characters secret in `{FILE_NAME}`")
