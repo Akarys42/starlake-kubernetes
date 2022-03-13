@@ -4,5 +4,6 @@ luna/token.txt
 blackbox/access_key.txt
 blackbox/key_id.txt
 blackbox/webhook.txt
+mtls/*.key
 *kubeconfig.y*ml
 .idea
