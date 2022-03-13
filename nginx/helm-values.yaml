@@ -1,0 +1,7 @@
+controller:
+  service:
+    metadata:
+      annotations:
+        metallb.universe.tf/address-pool: nginx
+    spec:
+      type: LoadBalancer

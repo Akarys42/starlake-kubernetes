@@ -1,0 +1,7 @@
+configInline:
+  address-pools:
+    - name: nginx
+      protocol: layer2
+      addresses:
+        - 139.177.178.143/32
+        - 2a01:7e01:e001:134::/64
