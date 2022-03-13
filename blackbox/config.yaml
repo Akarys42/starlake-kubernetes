@@ -6,7 +6,7 @@ data:
   blackbox.yaml: |
     databases:
       postgres:
-        kissland_postgres:
+        starlake_postgres:
           username: {{ POSTGRES_USER }}
           password: {{ POSTGRES_PASSWORD }}
           host: postgres.default.svc.cluster.local

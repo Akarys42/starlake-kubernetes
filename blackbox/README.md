@@ -7,9 +7,10 @@
 3. Create the secret: 
 ```
 kubectl create secret generic blackbox-env \
-  --from-literal=POSTGRES_USER=kissland-admin --from-file=POSTGRES_PASSWORD=../postgres/PASSWORD.txt \
+  --from-literal=POSTGRES_USER=starchild --from-file=POSTGRES_PASSWORD=../postgres/PASSWORD.txt \
   --from-file=KEY_ID=key_id.txt --from-file=ACCESS_KEY=access_key.txt \
   --from-file=WEBHOOK_URL=webhook.txt
+```
 
 ## Deploy Blackbox
 
