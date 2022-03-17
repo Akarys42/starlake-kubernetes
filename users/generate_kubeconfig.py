@@ -11,10 +11,11 @@ Usage:
     context.
 """.strip()
 
+import base64
 import sys
 from subprocess import run
+
 import yaml
-import base64
 
 
 def main():
@@ -33,14 +34,16 @@ def main():
 
     get_token = GET_TOKEN.copy()
     get_token[3] = secret_name.strip(" \n'")
-    token = base64.b64decode(run(get_token, capture_output=True, check=True).stdout.decode("utf-8")).decode("utf-8")
+    token = base64.b64decode(
+        run(get_token, capture_output=True, check=True).stdout.decode("utf-8")
+    ).decode("utf-8")
 
     kubeconfig["users"] = [{"name": user, "user": {"token": token.strip(" \n'")}}]
     kubeconfig["contexts"][0]["context"]["user"] = user
 
     with open(f"../{user}-kubeconfig.yaml", "w") as f:
         yaml.dump(kubeconfig, f)
-    
+
     print(f"Wrote kubeconfig for `{user}` to `{user}-kubeconfig.yaml`")
 
 
