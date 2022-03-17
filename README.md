@@ -6,6 +6,7 @@ The Kubernetes manifest for our k0s cluster [deployed through Ansible](https://g
 - [MetalLB](https://metallb.universe.tf/): Bare metal node balancer used to expose nginx to the world.
 - mTLS: TLS and CA bundles used by Nginx to ensure the integrity of the connection.
 - [Nginx](https://kubernetes.github.io/ingress-nginx/): Middleware used to distribute requests across services.
+- Users: service account used internally.
 
 ## Backend
 - [PostgreSQL](https://www.postgresql.org/): The database powering most other services.

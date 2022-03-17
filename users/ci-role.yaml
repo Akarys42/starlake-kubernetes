@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: ci
+rules:
+- apiGroups:
+    - apps
+  verbs:
+    - list
+    - get
+    - patch
+  resources:
+    - deployments
