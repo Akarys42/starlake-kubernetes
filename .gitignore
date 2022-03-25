@@ -2,6 +2,7 @@
 athena-test.com/*SECRET_KEY.txt
 commons/GHCR_TOKEN.txt
 gurkbot/token.txt
+gurkbot/wolfram_api_key.txt
 luna/token.txt
 blackbox/access_key.txt
 blackbox/key_id.txt
