@@ -9,5 +9,4 @@
 2. Update repositories: `helm repo update`
 
 ### Install Nginx
-3. Create namespace: `kubectl create namespace ingress-nginx`
-4. Deploy Nginx: `helm install -n ingress-nginx -f helm-values.yaml ingress-nginx ingress-nginx/ingress-nginx`
+3. Deploy Nginx: `helm install --create-namespace -n ingress-nginx -f helm-values.yaml ingress-nginx ingress-nginx/ingress-nginx`

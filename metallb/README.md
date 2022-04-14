@@ -13,5 +13,4 @@ kubectl apply -f - -n kube-system
 3. Update repositories: `helm repo update`
 
 ### Install MetalLB
-3. Create namespace: `kubectl create namespace metallb-system`
-4. Deploy MetalLB: `helm install -n metallb-system -f helm-values.yaml metallb metallb/metallb`
+3. Deploy MetalLB: `helm install --create-namespace -n metallb-system -f helm-values.yaml metallb metallb/metallb`
