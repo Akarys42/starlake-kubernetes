@@ -2,6 +2,22 @@ controller:
   service:
     metadata:
       annotations:
-        metallb.universe.tf/address-pool: nginx
+        metallb.universe.tf/loadBalancerIPs: 2a0f:85c1:29::/58
+
     spec:
       type: LoadBalancer
+
+    ipFamilies:
+      - IPv6
+    ipFamilyPolicy: SingleStack
+
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          preference:
+            matchExpressions:
+              - key: starchild.network/bgp
+                operator: In
+                values:
+                  - "true"
