@@ -40,10 +40,8 @@ spec:
               name: postgres-config
       volumes:
         - name: postgres-data
-          hostPath:
-            path: /var/postgres/data
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: postgres-volume
         - name: postgres-config
           configMap:
             name: postgres-config
-      nodeName: often  # The volume is on that node, pending of having a better solution

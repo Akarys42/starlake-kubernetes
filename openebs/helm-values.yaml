@@ -1,0 +1,5 @@
+csiNode:
+  kubeletDir: /var/lib/k0s/kubelet/
+
+defaultPolicy:
+  replicas: 2  # That's as much as we can do right now
