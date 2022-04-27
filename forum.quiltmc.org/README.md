@@ -12,6 +12,6 @@
 4. Create the secret `kubectl create secret generic forum-quiltmc-org-env --from-file=DISCOURSE_DEVELOPER_EMAILS=DEVELOPER_EMAILS.txt --from-file=DISCOURSE_DB_PASSWORD=PASSWORD_forum_quiltmc_org.txt --from-file=DISCOURSE_STMP_USER_NAME=STMP_USER_NAME.txt --from-file=DISCOURSE_STMP_PASSWORD=STMP_PASSWORD.txt`
 
 ### Deploy the Site
-4. Deploy! : `kubectl apply -f deployment.yaml`
-5. Create the service: `kubectl apply -f service.yaml`
-6. Start the ingress `kubectl apply -f ingress.yaml`
+5. Deploy! : `kubectl apply -f deployment.yaml`
+6. Create the service: `kubectl apply -f service.yaml`
+7. Start the ingress `kubectl apply -f ingress.yaml`
