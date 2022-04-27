@@ -5,7 +5,7 @@ blackbox/key_id.txt
 blackbox/webhook.txt
 commons/GHCR_TOKEN.txt
 forum.quiltmc.org/DEVELOPER_EMAILS.txt
-forum.quiltmc.org/STMP*
+forum.quiltmc.org/SMTP*
 gurkbot/token.txt
 gurkbot/wolfram_api_key.txt
 luna/token.txt
