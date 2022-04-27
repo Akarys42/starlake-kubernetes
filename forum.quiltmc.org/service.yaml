@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forum-quiltmc-org
+spec:
+  selector:
+    app: forum-quiltmc-org
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

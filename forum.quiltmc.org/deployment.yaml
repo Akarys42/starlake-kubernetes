@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forum-quiltmc-org
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forum-quiltmc-org
+  template:
+    metadata:
+      labels:
+        app: forum-quiltmc-org
+    spec:
+      containers:
+        - name: forum-quiltmc-org
+          image: ghcr.io/quiltmc/forum:latest
+          command: ["/bin/bash"]
+          args: ["-c", "cd /var/www/discourse; rake 'db:migrate'; nginx & (bin/bundle exec rails server && bin/bundle exec sidekiq -q critical,low,default -d -l log/sidekiq.log);"]
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 200m
+              memory: 300Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: forum-quiltmc-org-env
