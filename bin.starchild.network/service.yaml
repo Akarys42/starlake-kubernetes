@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bin-starchild-network
+spec:
+  selector:
+    app: bin-starchild-network
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

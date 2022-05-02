@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bin-starchild-network
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bin-starchild-network
+  template:
+    metadata:
+      labels:
+        app: bin-starchild-network
+    spec:
+      containers:
+        - name: bin-starchild-network
+          image: docker.io/kennethreitz/httpbin
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 50m
+              memory: 50Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+          ports:
+            - containerPort: 80

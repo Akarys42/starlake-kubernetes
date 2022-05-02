@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/auth-tls-secret: "default/cloudflare-ca"
+    nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
+    nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
+  name: bin.starchild.network
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: bin.starchild.network
+      http:
+        paths:
+          - backend:
+              service:
+                name: bin-starchild-network
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
