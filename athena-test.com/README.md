@@ -1,6 +1,7 @@
 # Site Deployment
 ## Pre-requisites
 - Nginx is deployed
+- Cert-manager is deployed
 - mTLS is set up
 - (commons) GHCR login is set up
 

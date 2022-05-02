@@ -3,8 +3,9 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/auth-tls-secret: "default/cloudflare-ca"
-    nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
-    nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
+    nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
+    nginx.ingress.kubernetes.io/auth-tls-error-page: "https://error.starchild.network/cert-tls-auth"
+    cert-manager.io/cluster-issuer: letsencrypt-production
   name: bin.starchild.network
 spec:
   ingressClassName: nginx
@@ -19,3 +20,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
+  tls:
+    - hosts:
+      - bin.starchild.network
+      secretName: bin-starchild-network-tls
