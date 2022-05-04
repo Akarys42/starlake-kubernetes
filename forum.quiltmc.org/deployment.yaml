@@ -30,3 +30,4 @@ spec:
           envFrom:
             - secretRef:
                 name: forum-quiltmc-org-env
+      nodeName: kissland
