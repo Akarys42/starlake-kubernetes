@@ -41,7 +41,7 @@ spec:
       volumes:
         - name: postgres-data
           hostPath:
-            path: /var/postgres/data
+            path: /var/encrypted/postgres/data
             type: DirectoryOrCreate
         - name: postgres-config
           configMap:
