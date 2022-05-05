@@ -2,6 +2,7 @@
 ## Pre-requisites
 - Nginx is deployed
 - Redis is deployed
+- Cert-manager is deployed
 - mTLS is set up
 
 ## Steps
