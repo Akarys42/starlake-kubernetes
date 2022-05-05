@@ -18,8 +18,8 @@ kubectl create secret generic forum-quiltmc-org-env \
     --from-file=DISCOURSE_SMTP_USER_NAME=SMTP_USER_NAME.txt \
     --from-file=DISCOURSE_SMTP_PASSWORD=SMTP_PASSWORD.txt \
     --from-file=DISCOURSE_S3_ACCESS_KEY_ID=S3_ACCESS_KEY.txt \
-    --from-file=DISCOURSE_S3_SECRET_KEY=S3_SECRET_KEY.txt \
-    --from-file=DISCOURSE_REDIS_DB=../redis/PASSWORD.txt
+    --from-file=DISCOURSE_S3_SECRET_ACCESS_KEY=S3_SECRET_KEY.txt \
+    --from-file=DISCOURSE_REDIS_PASSWORD=../redis/PASSWORD.txt
 ```
 
 ### Deploy the Site
