@@ -15,9 +15,18 @@ spec:
       containers:
         - name: forum-quiltmc-org
           image: ghcr.io/quiltmc/forum:latest
+          imagePullPolicy: Always
+
           command: ["/bin/bash"]
           args: ["-c", "cd /var/www/discourse; /sbin/boot;"]
-          imagePullPolicy: Always
+
+          readinessProbe:
+            httpGet:
+              path: /srv/status
+              port: 80
+            failureThreshold: 12
+            periodSeconds: 10
+
           resources:
             requests:
               cpu: 200m
@@ -25,8 +34,10 @@ spec:
             limits:
               cpu: 1000m
               memory: 1000Mi
+
           ports:
             - containerPort: 80
+
           envFrom:
             - secretRef:
                 name: forum-quiltmc-org-env
