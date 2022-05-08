@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - name: forum-quiltmc-org
+        - name: forum-quiltmc-org-upload-assets
           image: ghcr.io/quiltmc/forum:latest
           imagePullPolicy: Always
 

@@ -6,9 +6,13 @@ metadata:
 rules:
 - apiGroups:
     - apps
+    - batch
   verbs:
     - list
     - get
     - patch
+    - create
+    - watch
   resources:
     - deployments
+    - jobs
