@@ -17,8 +17,8 @@ spec:
           image: ghcr.io/quiltmc/forum:latest
           imagePullPolicy: Always
 
-          command: ["/bin/bash"]
-          args: ["-c", "cd /var/www/discourse; rake s3:upload_assets | grep  & /sbin/boot;"]
+          command: ["/sbin/boot"]
+          workingDir: /var/www/discourse
 
           readinessProbe:
             httpGet:

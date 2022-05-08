@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: forum-quiltmc-org-upload-assets
+spec:
+  ttlSecondsAfterFinished: 10
+  template:
+    spec:
+      containers:
+        - name: forum-quiltmc-org
+          image: ghcr.io/quiltmc/forum:latest
+          imagePullPolicy: Always
+
+          command: [ "rake" ]
+          args: [ "s3:upload_assets" ]
+          workingDir: /var/www/discourse
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 200Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+
+          envFrom:
+            - secretRef:
+                name: forum-quiltmc-org-env
+
+      restartPolicy: Never
+  backoffLimit: 4
+
